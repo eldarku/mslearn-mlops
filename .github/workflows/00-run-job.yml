@@ -28,4 +28,4 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Run job with GitHub Actions
       run: |
-        az ml job create --file src\job.yml --resource-group "${{ github.event.inputs.resource_group }}" --workspace-name "${{ github.event.inputs.aml_workspace }}"
+        az ml job create --file src\\job.yml --resource-group "${{ github.event.inputs.resource_group }}" --workspace-name "${{ github.event.inputs.aml_workspace }}"
