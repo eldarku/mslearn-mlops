@@ -1,4 +1,4 @@
-name: run-job
+name: run-job-triggered
 
 on:
   push:
