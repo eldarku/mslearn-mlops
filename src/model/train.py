@@ -28,8 +28,8 @@ def main(args):
 def process_data(df):
     # split dataframe into X and y
     X, y = df[['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure',
-            'TricepsThickness', 'SerumInsulin', 'BMI', 'DiabetesPedigree',
-            'Age']].values, df['Diabetic'].values
+                'TricepsThickness', 'SerumInsulin', 'BMI', 'DiabetesPedigree',
+                'Age']].values, df['Diabetic'].values
 
     # train/test split
     X_train, X_test, y_train, y_test = \
