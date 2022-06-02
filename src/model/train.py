@@ -27,13 +27,13 @@ def main(args):
 
 def process_data(df):
     # split dataframe into X and y
-    X, y = df[['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure', 
-        'TricepsThickness', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 
-        'Age']].values, df['Diabetic'].values
+    X, y = df[['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure',
+            'TricepsThickness', 'SerumInsulin', 'BMI', 'DiabetesPedigree',
+            'Age']].values, df['Diabetic'].values
 
     # train/test split
     X_train, X_test, y_train, y_test = \
-    train_test_split(X, y, test_size=0.30, random_state=0)
+        train_test_split(X, y, test_size=0.30, random_state=0)
 
     # return splits and encoder
     return X_train, X_test, y_train, y_test
@@ -54,8 +54,8 @@ def parse_args():
 
     # add arguments
     parser.add_argument("--training_data", dest='training_data', type=str)
-    parser.add_argument("--reg_rate", 
-        dest='reg_rate', type=float, default=0.01)
+    parser.add_argument("--reg_rate",
+                        dest='reg_rate', type=float, default=0.01)
 
     # parse args
     args = parser.parse_args()
