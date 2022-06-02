@@ -28,7 +28,7 @@ def main(args):
 def process_data(df):
     # split dataframe into X and y
     X, y = df[['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure',
-            'TricepsThickness', 'SerumInsulin', 'BMI', 'DiabetesPedigree',
+                'TricepsThickness', 'SerumInsulin', 'BMI', 'DiabetesPedigree',
                 'Age']].values, df['Diabetic'].values
 
     # train/test split
