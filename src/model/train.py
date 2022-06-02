@@ -17,19 +17,19 @@ def main(args):
     data_path = args.training_data
     all_files = glob.glob(data_path + "/*.csv")
     df = pd.concat((pd.read_csv(f) for f in all_files), sort=False)
-  
+
     # process data
     X_train, X_test, y_train, y_test = process_data(df)
 
     # train model
-    #model = train_model(args.reg_rate, X_train, X_test, y_train, y_test)
+    # model = train_model(args.reg_rate, X_train, X_test, y_train, y_test)
 
 
 def process_data(df):
     # split dataframe into X and y
-    X, y = df[['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure', \
-    'TricepsThickness', 'SerumInsulin', 'BMI', 'DiabetesPedigree', \
-    'Age']].values, df['Diabetic'].values
+    X, y = df[['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure', 
+        'TricepsThickness', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 
+        'Age']].values, df['Diabetic'].values
 
     # train/test split
     X_train, X_test, y_train, y_test = \
@@ -42,7 +42,7 @@ def process_data(df):
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
     # train model
     model = LogisticRegression(C=1/reg_rate, solver="liblinear")\
-    .fit(X_train, y_train)
+        .fit(X_train, y_train)
 
     # return model
     return model
@@ -54,8 +54,8 @@ def parse_args():
 
     # add arguments
     parser.add_argument("--training_data", dest='training_data', type=str)
-    parser.add_argument("--reg_rate", \
-    dest='reg_rate', type=float, default=0.01)
+    parser.add_argument("--reg_rate", 
+        dest='reg_rate', type=float, default=0.01)
 
     # parse args
     args = parser.parse_args()
