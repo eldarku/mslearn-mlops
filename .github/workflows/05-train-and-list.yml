@@ -1,0 +1,40 @@
+name: run-job-triggered
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: dev 
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@main
+    - name: Install az ml extension
+      run: az extension add -n ml -y
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: Run job with GitHub Actions
+      run: |
+        az ml job create --file src/job.yml --resource-group "rg-dev-mlops" --workspace-name "mlw-dev-mlops"
+
+  list:
+    runs-on: ubuntu-latest
+    environment:
+      name: prod 
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@main
+    - name: Install az ml extension
+      run: az extension add -n ml -y
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: Run job with GitHub Actions
+      run: |
+        az ml model list --resource-group "rg-dev-mlops" --workspace-name "mlw-dev-mlops"
