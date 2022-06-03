@@ -1,4 +1,4 @@
-name: run-job-triggered
+name: 05-train-and-list
 
 on:
   push:
